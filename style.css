@@ -1,45 +1,219 @@
-body {
-    background-color: bisque;
-    font-family: 'Times New Roman', Times, serif;
-
+* {
+    font-family: "Oswald", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
-.navbar {
-
-    background-color: rgb(77, 53, 53);
-    color: white;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    font-size: larger;
+* Reset margin and padding for all elements to avoid collapsing issues */
+* {
     margin: 0;
-    padding: 10px 20px;
-    
+    padding: 0;
+    box-sizing: border-box;
 }
-ul{
+
+/* Style for the entire navbar */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 100px;
-    width: 100%;
-    list-style: none;
+    background-color: #262626; /* Darker background color */
+    padding: 10px 30px; /* Adjusted padding to reduce excessive space */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
 
-}
-.title{
+/* Style for the left side of the navbar */
+.navbar-left {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
-    margin: 50px 150px 0 150px;
-    background-color: rgb(77, 53, 53);
+    justify-content: center; /* Center the items horizontally in the left section */
+}
+
+.navbar-left ul {
+    display: flex;
+    list-style: none;
+    justify-content: center; /* Center the list items horizontally */
+}
+
+.navbar-left li {
+    margin-right: 20px; /* Space between left navbar items */
+}
+
+.navbar-left a {
     color: white;
-    /* border: 5px solid black; */
-    border-radius: 50px;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 900;
+    transition: color 0.3s ease;
 }
-/* .main{
+
+.navbar-left a:hover {
+    color: #3498db; /* Bright blue color on hover */
+    text-decoration: underline;
+}
+
+/* Style for the right side of the navbar */
+.navbar-right {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Center the items horizontally in the right section */
+}
+
+.navbar-right ul {
+    display: flex;
+    list-style: none;
+    justify-content: center; /* Center the list items horizontally */
+}
+
+.navbar-right li {
+    margin-left: 20px; /* Space between right navbar items */
+}
+
+.navbar-right a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 900;
+    transition: color 0.3s ease;
+}
+
+.navbar-right a:hover {
+    color: #3498db; /* Bright blue color on hover */
+    text-decoration: underline;
+}
+
+/* Add a responsive design to stack items on smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack the navbar vertically */
+        align-items: flex-start; /* Align items to the left */
+        padding: 10px 20px; /* Adjust padding for smaller screens */
+    }
+
+    .navbar-left ul, .navbar-right ul {
+        flex-direction: column; /* Stack the items vertically */
+        margin-top: 10px;
+    }
+
+    .navbar-left li, .navbar-right li {
+        margin: 5px 0; /* Add space between items */
+    }
+}
+/* Header Section */
+.title {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.title h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+/* Cart Dropdown */
+.cart-dropdown {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    background-color: white;
+    color: black;
+    border: 2px solid #ccc;
+    width: 300px;
+    display: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-items {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    gap: 10px;
+}
+
+.cart-item-image {
+    width: 25%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.cart-item-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cart-item-details .quantity {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* Product Grid */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.product {
+    width: calc(25% - 20px);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.product img {
     width: 100%;
-} */
- 
+    height: auto;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product img:hover {
+    transform: scale(1.05);
+}
+
+.product-details {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.product-category {
+    font-size: 1.2em;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.product-name {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.product-price {
+    font-size: 1.5em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.add-to-cart-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #0056b3;
+}
